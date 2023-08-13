@@ -23,8 +23,8 @@ jobs:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |        
-        docker login -u $DOCKER_USER --password-stdin DOCKER_PASSWORD
-        
+        #docker login -u $DOCKER_USER --password-stdin DOCKER_PASSWORD
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USER }} --password-stdin
     - name: Build Docker Image
       run: |
         docker build -t gregoryreyesp/docker-graphql:1.0.1 .
