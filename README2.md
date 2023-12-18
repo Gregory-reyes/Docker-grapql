@@ -1,26 +1,28 @@
-# Configuración y despliegue
-# restricciones
+## Configuración y despliegue
+## Restricciones en github
 settings -> secrets -> Actions -> New repository secret
 
-# creación de 2 secrets en docker hub
+## creación de 2 secrets en docker hub
 
-name= DOCKER_USER
-secret = secreto de docker hub
+1. name= DOCKER_USER
+2. secret = secreto de docker hub
 
-# creación del password con token de acceso docker hub -> account settings -> security -> new access token ->asigno permisos -> generar token
+## creación del password con token de acceso docker hub -> account settings -> security -> new access token ->asigno permisos -> generar token
 
-name= DOCKER_PASSWORD
-secret = token de acceso docker hub
+1. name= DOCKER_PASSWORD
+2. secret = token de acceso docker hub
 
-# ejecutamos el comando pra crear la imagen
-```docker build -t gregoryreyesp/docker-graphql:1.0.0 .
+## ejecutamos el comando para crear la imagen
+```
+docker build -t gregoryreyesp/docker-graphql:1.0.0 .
 ```
 
-# ejecutamos el comando para crear el contenedor y habiliar el puerto 3000
-```docker container run -p 3000:3000 gregoryreyesp/docker-graphql:1.0.0
+## ejecutamos el comando para crear el contenedor y habiliar el puerto 3000
+```
+docker container run -p 3000:3000 gregoryreyesp/docker-graphql:1.0.0
 ```
 
-# editamos el archivo en actions github -> workflows -> docker-image.yml con el siguiente codigo probado y funcional 
+## editamos el archivo en actions github -> workflows -> docker-image.yml con el siguiente codigo probado y funcional 
 ```
 name: Docker Image CI
 
